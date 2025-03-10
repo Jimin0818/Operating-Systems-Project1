@@ -45,3 +45,31 @@ def main():
                 history.append(result.split(" ", 1)[1])
                 print(result)
                 log("ENCRYPT", text)
+                 case "decrypt":
+                print("Enter text to decrypt: ", end="")
+                text = input().strip().upper()
+                encryptor.stdin.write(f"DECRYPT {text}\n")
+                encryptor.stdin.flush()
+                result = encryptor.stdout.readline().strip()
+                history.append(result.split(" ", 1)[1])
+                print(result)
+                log("DECRYPT", text)
+            case "history":
+                print("History")
+                for i, item in enumerate(history):
+                    print(f"{i+1}: {item}")
+            case "quit":
+                log("EXIT", "driver exit")
+                encryptor.stdin.write("QUIT\n")
+                encryptor.stdin.flush()
+                logger.stdin.write("QUIT\n")
+                logger.stdin.flush()
+                encryptor.wait()
+                logger.wait()
+                break
+            case _:
+                print("invalid command")
+if __name__ == "__main__":
+    main()
+
+
