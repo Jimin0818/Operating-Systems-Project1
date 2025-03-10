@@ -1,5 +1,5 @@
 * February 25 4:30pm
-I have set up the Git repository for Project 1, following Professor Salazar's instructions. This project consists of three components:
+I have set up the Git repository for Project 1. This project consists of three components:
 Logger Program – Handles initialization and logs system activity.
 Encryption Program – Implements encryption for data security.
 Driver Program – Manages user commands and system termination.
@@ -38,7 +38,6 @@ Key Features of the driver.py includes
 five commands: password, encrypt, decrypt, history, and quit.
 Includes error checking for invalid or out-of-scope commands.
 
-
 * March 9 8:40pm
 Took a short break, and added the implementations for encrypt and password command. 
 
@@ -51,7 +50,6 @@ Based on the log file, the driver starts but the encrypt and password command do
 
 * March 9 9:20pm
 Added the command for decrypt, history, and quit. The commands still do not work.
-
 
 * March 9 10:50pm
 Fixed the implementation for the commands, and it works according to the logfiles.
@@ -86,7 +84,6 @@ Outcome of the logfiles:
 2025-03-09 22:59:46 [ENCRYPT] HI
 2025-03-09 22:59:52 [ENCRYPT] HI
 
-
 * March 10 3:10pm
 Had to manually commit the encryption.py into GitHub webpage due to issues with syncing    
    
@@ -98,10 +95,8 @@ logfile output:
 2025-03-10 15:25:44 [ENCRYPT] YOON
 2025-03-10 15:25:54 [DECRYPT] FSZY
 
-
 * March 10 3:50pm
 Fixed error. The program is not accepting special characters like "Hello World!" into the encrypt. 
-
 
 * March 10 4:10pm
 Uploaded cleaned and commented version of the encryption.py 
