@@ -1,0 +1,122 @@
+* February 25 4:30pm
+I have set up the Git repository for Project 1, following Professor Salazar's instructions. This project consists of three components:
+Logger Program – Handles initialization and logs system activity.
+Encryption Program – Implements encryption for data security.
+Driver Program – Manages user commands and system termination.
+
+* March 6 3:56pm
+Created an empty readMe text file, and main.py 
+
+* March 6 4:00pm
+Uploaded instructions and rubric for the project onto GitHub
+
+* March 6 4:10pm
+Renamed main.py to logger.py, created driver.py and encryption.py after reading through the instructions provided
+
+* March 9 6:33pm
+I have started and semi completed the logger file.
+
+Key implementation details:
+
+The timestamp follows the year-month-day hour-minute format 
+Each log entry consists of:
+Timestamp (from the datetime module)
+Action requested
+Message content
+Example: 2025-03-09 19:47 [START] Driver started
+
+ERROR * March 9 7:30pm
+For some reason, the encryption file did not sync up with the repository.
+
+Beginning Encrypton program of project. Instructions describe this part of the system as accepting specific commands which therefore will be taken to the driver side of the program to be ran. The listed commands are PASS, ENCRYPT, DECRYPT, QUIT, RESULT, ERROR. What is likeliest the best scenario is using match-case command to pass the action for output following by the argument of the command. What is also listed is the use of Vigenere cypher for the passkey. This helps for the case-insensitive text encryption. Using the 26 letters of the alphabet, the Caeser Ciphers will correspond and encipher pushing each alphabet around it.
+
+* March 9 7:47pm
+
+I’ve started the Driver program for the project. I started implementing driver.py and tested its integration with the logger and encryption programs. It handles commands, logs actions, and processes encryption. I'll add more commands later on.
+
+Key Features of the driver.py includes
+five commands: password, encrypt, decrypt, history, and quit.
+Includes error checking for invalid or out-of-scope commands.
+
+
+* March 9 8:40pm
+Took a short break, and added the implementations for encrypt and password command. 
+
+logfiles.txt
+2025-03-09 20:43:07 [START] Driver started
+2025-03-09 20:48:28 [START] Driver started
+2025-03-09 20:50:47 [START] Driver started
+
+Based on the log file, the driver starts but the encrypt and password command does not work. 
+
+* March 9 9:20pm
+Added the command for decrypt, history, and quit. The commands still do not work.
+
+
+* March 9 10:50pm
+Fixed the implementation for the commands, and it works according to the logfiles.
+
+Outcome of the logfiles:
+
+2025-03-09 22:50:52 [PASSWORD_SET] 
+2025-03-09 22:52:19 [ENCRYPT] HISTORY
+2025-03-09 22:53:07 [DECRYPT] HELLO
+2025-03-09 22:53:23 [ENCRYPT] HISTORY
+2025-03-09 22:53:36 [ENCRYPT] HELLO
+2025-03-09 22:53:52 [DECRYPT] HELLO
+2025-03-09 22:54:03 [PASSWORD_SET] 
+2025-03-09 22:54:11 [ENCRYPT] HI
+2025-03-09 22:54:26 [DECRYPT] OIWWC
+2025-03-09 22:54:40 [DECRYPT] RESULT OIWWC
+2025-03-09 22:55:18 [DECRYPT] AAAAA
+2025-03-09 22:55:50 [PASSWORD_SET] 
+2025-03-09 22:55:55 [ENCRYPT] JIMIN
+2025-03-09 22:56:05 [DECRYPT] RESULT SQYQA
+2025-03-09 22:57:18 [EXIT] driver exit
+2025-03-09 22:57:58 [START] Driver started
+2025-03-09 22:58:02 [PASSWORD_SET] 
+2025-03-09 22:58:06 [ENCRYPT] HELLO
+2025-03-09 22:58:12 [DECRYPT] ZINCS
+2025-03-09 22:58:28 [DECRYPT] INCS
+2025-03-09 22:58:39 [DECRYPT] ZINCS
+2025-03-09 22:58:54 [EXIT] driver exit
+2025-03-09 22:59:37 [START] Driver started
+2025-03-09 22:59:39 [PASSWORD_SET] 
+2025-03-09 22:59:43 [PASSWORD_SET] 
+2025-03-09 22:59:46 [ENCRYPT] HI
+2025-03-09 22:59:52 [ENCRYPT] HI
+
+
+* March 10 3:10pm
+Had to manually commit the encryption.py into GitHub webpage due to issues with syncing    
+   
+* March 10 3:20pm
+Found error. The program is accepting special characters like "Hello World!" into the encrypt. According to the rubric, it is suppose to show an error message instead of showing an encrypted message.
+logfile output:
+2025-03-10 15:23:32 [ENCRYPT] HELLO WORLD!
+2025-03-10 15:23:54 [DECRYPT] OIWWC DSCWR!
+2025-03-10 15:25:44 [ENCRYPT] YOON
+2025-03-10 15:25:54 [DECRYPT] FSZY
+
+
+* March 10 3:50pm
+Fixed error. The program is not accepting special characters like "Hello World!" into the encrypt. 
+
+
+* March 10 4:10pm
+Uploaded cleaned and commented version of the encryption.py 
+
+*March 10 4:20pm
+Uploaded cleaned and commented version of the logger.py 
+
+*March 10 4:44pm
+Uploaded cleaned and commented version of the driver.py 
+
+*March 10 5:10pm
+Uploaded the readME
+
+*March 10 5:10pm
+Uploaded the devLog
+
+
+
