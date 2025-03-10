@@ -42,11 +42,13 @@ def process_command():
             elif command == "ENCRYPT":
                 if passkey is None:
                     print("ERROR Password not set")
+                elif any(not char.isalpha() and not char.isspace() for char in argument):
+                    print("ERROR Encryption input contains symbols")
                 else:
                     print("RESULT", vigenere_cipher(argument, passkey))
             elif command == "DECRYPT":
                 if passkey is None:
-                    print("ERROR Password not set")
+                    print("ERROR Password not set: UNKNOWN CHARACTER")
                 else:
                     print("RESULT", vigenere_cipher(argument, passkey, decrypt=True))
             elif command == "QUIT":
