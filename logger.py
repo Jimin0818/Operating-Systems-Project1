@@ -1,39 +1,45 @@
-
 import sys
-import datetime
+from datetime import datetime
 
+def logging(log_file):
+    try:
+        with open(log_file, "a") as f, sys.stdin as stdin:
+            while True:
+                try:
+                    #Read input
+                    line = stdin.readline().strip()
+                    if not line:
+                        continue  #Skip empty lines
+                    
+                    if line.upper() == "QUIT":
+                        break  #Exit logger
+                    
+                    #Split input
+                    parts = line.split(" ", 1)
+                    action = parts[0].strip()
+                    message = parts[1].strip() if len(parts) > 1 else ""
 
-def log_message(log_file):
-    """Logs messages received from standard input to the specified log file."""
-    with open(log_file, 'a') as file:
-        while True:
-            try:
-                line = sys.stdin.readline().strip()
-                if line == "QUIT":
-                    break
-
-                if not line:
+                    if action:
+                        #Write timestamp and log entry
+                        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                        log_entry = f"{timestamp} [{action}] {message}\n"
+                        f.write(log_entry)
+                        f.flush()
+                
+                except Exception as e:
+                    #Log errors
+                    print(f"Logger Error: {e}", file=sys.stderr)
                     continue
 
-                parts = line.split(" ", 1)
-                action = parts[0]
-                message = parts[1] if len(parts) > 1 else ""
-
-                timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
-                log_entry = f"{timestamp} [{action}] {message}\n"
-
-                file.write(log_entry)
-                file.flush()
-
-            except Exception as e:
-                sys.stderr.write(f"Logging error: {e}\n")
-                sys.stderr.flush()
-
+    except Exception as e:
+        #Handle file errors
+        print(f"Error opening log file: {e}", file=sys.stderr)
+        sys.exit(1)
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        sys.stderr.write("Usage: python logger.py <logfile>\n")
+        print("Usage: python logger.py <logfile>")
         sys.exit(1)
-
+    
     log_file = sys.argv[1]
-    log_message(log_file)
+    logging(log_file)
