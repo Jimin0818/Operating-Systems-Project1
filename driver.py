@@ -8,8 +8,8 @@ def main():
         sys.exit(1)
     logging_file = sys.argv[1]
     #Start subprocesses: logger.py and encryptor.poy
-    logger = subprocess.Popen(["python", "logger.py", logging_file], stdin=subprocess.PIPE, encoding="utf8")
-    encryptor = subprocess.Popen(["python", "encryption.py"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, encoding="utf8")
+    logger = subprocess.Popen(["python3", "logger.py", logging_file], stdin=subprocess.PIPE, encoding="utf8")
+    encryptor = subprocess.Popen(["python3", "encryption.py"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, encoding="utf8")
      #Stores encryption and decryption results
     history = []
     def log(action, message=""):
